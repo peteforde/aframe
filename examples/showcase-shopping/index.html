@@ -5,18 +5,20 @@
     <title>Shopping</title>
     <meta name="description" content="Shopping - A-Frame">
     <script src="../../dist/aframe.js"></script>
+    <script src="../../dist/Animation.js"></script>
+    <script src="../../dist/AnimationHandler.js"></script>
   </head>
   <body>
     <a-scene>
       <a-assets>
-        <a-asset-item id="why-male-models" src="../_models/man/man.dae"></a-asset-item>
+        <a-asset-item id="why-male-models" src="../_models/pete/pete.dae"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 1.6 0"></a-camera>
 
       <a-entity id="model" position="0 0 -2">
         <a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="15000" easing="linear" repeat="inifite"></a-animation>
-        <a-collada-model position="-.35 0 .55" rotation="0 -20 0" scale="1.5 1.5 1.5" src="#why-male-models"></a-collada-model>
+        <a-collada-model position="0 0 0" rotation="0 0 0" scale="3 3 3" src="#why-male-models"></a-collada-model>
         <a-image src="../_images/radial-shadow-2.png" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-image>
       </a-entity>
 

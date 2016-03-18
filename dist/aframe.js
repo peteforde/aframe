@@ -52648,6 +52648,8 @@ module.exports.Component = registerComponent('collada-model', {
       self.model = colladaModel.scene;
       el.setObject3D('mesh', self.model);
       el.emit('model-loaded', {format: 'collada', model: self.model});
+  		var animation = new THREE.Animation( self.model.children[0].children[0], self.model.children[0].children[0].geometry.animation );
+  		animation.play();
     });
   },
 
@@ -57280,6 +57282,8 @@ var AScene = module.exports = registerElement('a-scene', {
             systems[key].tick(time, timeDelta);
           });
         }
+        
+        THREE.AnimationHandler.update(timeDelta * 0.001);
 
         this.renderer.render(this.object3D, camera);
 

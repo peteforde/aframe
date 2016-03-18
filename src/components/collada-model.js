@@ -26,6 +26,8 @@ module.exports.Component = registerComponent('collada-model', {
       self.model = colladaModel.scene;
       el.setObject3D('mesh', self.model);
       el.emit('model-loaded', {format: 'collada', model: self.model});
+  		var animation = new THREE.Animation( self.model, self.model.geometry.animation );
+  		animation.play();
     });
   },
 
@@ -34,3 +36,16 @@ module.exports.Component = registerComponent('collada-model', {
     this.el.removeObject3D('mesh');
   }
 });
+
+// dae = collada.scene;
+//
+// dae.traverse( function ( child ) {
+//
+//   if ( child instanceof THREE.SkinnedMesh ) {
+//
+//     var animation = new THREE.Animation( child, child.geometry.animation );
+//     animation.play();
+//
+//   }
+//
+// } );
